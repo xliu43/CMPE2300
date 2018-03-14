@@ -8,8 +8,13 @@ namespace testPrep
 {
     class CString:IComparable
     {
-        private String str;
+        internal String str;
+        static int counter;
+        static CString()
+        {
+            Console.WriteLine("hello");
 
+        }
         public CString(string s)
         {
             str = s;
