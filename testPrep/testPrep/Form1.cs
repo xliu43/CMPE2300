@@ -24,41 +24,15 @@ namespace testprep
 
         private void Drawer_MouseLeftClick(Point pos, CDrawer dr)
         {
-            pointLinkedList.AddLast(pos);
-            pointQueue.Enqueue(pos);
-            Render();
+            if (!pointLinkedList.Contains(pos))
+            {
+                pointLinkedList.AddLast(pos);
+                LinkedListNode<Point> node = pointLinkedList.First;
+
+            }
         }
 
 
-        private void Render()
-        {
-            LinkedListNode<Point> nodePoint;
-            nodePoint = pointLinkedList.First;
-            while (nodePoint!=null &&nodePoint.Next!=null)
-            {
-                drawer.AddLine(nodePoint.Value.X, nodePoint.Value.Y, nodePoint.Next.Value.X, nodePoint.Next.Value.Y,Color.Red,5);
-                nodePoint = nodePoint.Next;
-                if (nodePoint.Next != null && nodePoint.Next.Next == null)
-                {
-                    drawer.AddLine(nodePoint.Value.X, nodePoint.Value.Y, nodePoint.Next.Value.X, nodePoint.Next.Value.Y, Color.Red, 5);
-                }
-                else
-                    nodePoint = nodePoint.Next;
-
-            }
-            if (pointQueue.Count>1)
-            {
-                Point lastPoint = new Point(-1, -1);
-                Point startPoint = new Point(-1, -1);
-                
-                lastPoint = pointQueue.Dequeue();
-
-                drawer.AddLine(startPoint.)
-
-            }
-
-
-
-        }
+       
     }
 }
